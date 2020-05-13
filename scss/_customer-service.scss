@@ -1,0 +1,31 @@
+.presales-service-item{
+    @include place-grid;
+    @include place-padding;
+    text-align: center;
+    justify-content: space-around;
+    grid-template-columns: repeat(auto-fit, minmax(250px, min-content));
+    img {
+        width: 100%;
+        margin-bottom: 1rem;
+        transition: transform 1s;
+        border-radius: 50%;
+        box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.5);
+
+        &:hover{
+        transform: translateY(-10px);
+    }   
+    }
+    h4 {
+        margin-bottom: 1rem;
+    }
+}
+
+
+.aftersales-service {
+    color: $light-color;
+    background-color: $blue-color;
+    &-item {
+        @extend .presales-service-item;
+    }
+
+}

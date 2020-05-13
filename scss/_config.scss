@@ -1,0 +1,118 @@
+/*Colors*/
+$blue-color: #124b8c;
+$footer-color: #26495c;
+$light-color:   #f2f2f2;
+$dark-color:    #2f2f2f;
+$nav-background: #262626;
+$backtop: #6C2EB9;
+
+/*Font-weight*/
+$font-bold: bold;
+
+/*Buttons*/
+@mixin button-home {
+    padding: .6rem;
+    background-color: $dark-color;
+    color: $light-color; 
+    border-radius: 50px;
+    transition: all ease-in-out .5s;
+    font-weight: normal;
+    &:hover {
+        background-color: lighten($dark-color, 5%);
+        transform: scale(1.05);
+    }
+    &:after{
+        display: inline-block;
+    }
+    &:hover::after{
+        @include font-icon;
+        content: '\f101';
+        padding-left: 1rem;
+    }
+}
+
+/*Product center sidebar*/
+@mixin product-center-sidebar {
+        color: $dark-color;
+        line-height: 1.8em;
+        h3 {
+            background-color: $blue-color;
+            color: $light-color;
+            text-align: center;
+            padding-top: .4rem;
+            padding-bottom: .4rem;
+            margin-bottom: 1rem;
+            &:hover {
+                background-color: lighten($blue-color, 8%);
+            }
+        }
+        h4 {
+            color: $dark-color;
+            text-align: left;
+            transition: all ease-in-out .5s;
+            &:last-child {
+                margin-bottom: 1rem;
+            }
+            &:hover {
+                padding-left: 1rem;
+            }
+            &:before {
+                @include font-icon;
+                content:'\f0da';
+                font-size: 1rem;
+                padding-right: .8rem;
+            }
+            &:hover::before {
+                content:'\f0d7';
+            }
+        }
+    }
+
+
+/*Font Awesome*/
+@mixin font-icon {
+   font-family: "Font Awesome 5 Free";
+   font-weight: 900;
+}
+
+/*Padding and margin*/
+$desktop-padding: 2.5rem 7rem;
+$mobile-padding: 1rem;
+
+
+@mixin place-padding {
+    padding: $desktop-padding;
+    @include table {
+        padding: $mobile-padding;
+    }
+}
+
+@mixin product-padding ($desk) {
+    padding-left: $desk;
+    padding-right: $desk;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    @include table {
+        padding: $desktop-padding;
+    }
+    @include mobile {
+        padding: $mobile-padding;
+    }
+}
+
+/*Display grid and place center*/
+@mixin place-grid {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 20px;
+    grid-row-gap: 3rem;
+}
+
+/*Display flex and place center*/
+@mixin place-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}

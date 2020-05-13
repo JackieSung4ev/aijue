@@ -1,0 +1,112 @@
+.footer {
+    @extend .product-center;
+    background-color: $nav-background;
+    padding: $mobile-padding;
+}
+
+@supports (display: grid) {
+.footer-item {
+    @include place-grid;
+    @extend .contact-item;
+    grid-template-columns: repeat(3, 1fr);
+    padding: $mobile-padding;
+    @include table {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include mobile {
+        grid-template-columns: 1fr;
+    }
+    img {
+        width: 200px;
+        margin-bottom: 0;
+    }
+    p {width:100%;}
+}
+}
+
+.credit {
+    background-color: darken($nav-background, 10%);
+    color: $light-color;
+    padding: $mobile-padding;
+    font-size: 14px;
+}
+
+.credit-item {
+    @include place-flex;
+    flex-direction: column;
+    text-align: center;
+    p {
+        margin-bottom: 1rem;
+        width:100%;
+    }
+    a {
+        color: $light-color;
+    }
+    div {
+        width:100%;
+    }
+}
+
+
+/*Back to top*/
+button.back-to-top{
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff;
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
+    border-radius: 50px;
+    color: transparent;
+    clear: both;
+    visibility: hidden;
+    position: fixed;
+    cursor: pointer;
+    display: block;
+    border: none;
+    right: 50px;
+    bottom: 75px;
+    font-size: 0px;
+    outline: 0 !important;
+    z-index: 99;
+    transition: all .3s ease-in-out;
+  
+  }
+  button.back-to-top:hover,
+  button.back-to-top:active,
+  button.back-to-top:focus,{
+    outline: 0 !important;
+  }
+  button.back-to-top::before {
+    @include font-icon;
+    //content: "\f077";
+    content: "\f0a6";
+    font-size: 2rem;
+    display: block;
+    vertical-align: middle;
+    margin: -5px 0 auto;
+  }
+  button.back-to-top.show {
+    display: block;
+    background-color: $backtop;
+    color: $light-color;
+    font-size: 25px;
+    @include table {
+        right: 25px;
+    }
+    right: 80px;
+    bottom: 50px;
+    height: 60px;
+    width: 60px;
+    visibility: visible;
+    box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
+    transition: transform .5s;
+    transform: rotate(360deg);
+    &:hover {
+        background-color: $blue-color;
+        transform: rotate(720deg);
+    }
+  }
+  button.back-to-top.show:active {
+    box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.25);
+  }

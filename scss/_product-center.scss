@@ -1,0 +1,66 @@
+/*Sidebar*/
+.section-title {
+    @include place-padding;
+}
+
+.product-categories {
+    @include place-grid;
+    grid-template-columns: 1fr 4.5fr;
+    grid-template-areas: "sidebar content";
+    @include place-padding;
+    @include product-sidebar {
+        grid-template-areas: "content"
+                             "sidebar";
+        grid-template-columns: 1fr;                            
+    }
+}
+
+.product-sidebar {
+    grid-area: sidebar;
+    align-self: start;
+    justify-self: stretch;
+    margin-right: .8rem;
+    display: grid;
+    div > a {
+        @include product-center-sidebar;
+    }
+}
+
+.product-center-categories{
+    grid-area: content;
+    align-self: start;
+    .product-categories-item {
+    @extend .product-item;
+    padding: 0;
+    align-self: start;
+    margin-bottom: 5rem;
+    div:first-child {
+        text-align: center;
+        background-color: lighten($dark-color, 70%);
+        border-radius: 15px;
+        padding: .3rem;
+        display: grid;
+        align-content: center;
+        align-self: stretch;
+        justify-self: stretch;
+        &:hover {
+            background-color: lighten($dark-color, 65%);
+        }
+    }
+}
+}
+
+/*Mixing Equipment*/
+#mixing-equipment {
+    @extend .product-categories-item;
+}
+
+/*Conveyer Equipment*/
+#conveyer-equipment {
+    @extend .product-categories-item;
+}
+
+/*Packing Equipment*/
+#packing-equipment {
+    @extend .product-categories-item;
+}

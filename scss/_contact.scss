@@ -1,0 +1,8 @@
+.contact-us-now {
+    @extend .contact-us;
+    background-color: transparent;
+    color: $dark-color;
+    &-item {
+        @extend .contact-item;
+    }
+}

@@ -1,0 +1,130 @@
+.industrial-food {
+    @include place-grid;
+    align-items: stretch;
+    @include place-padding;
+    grid-template-columns: 1fr 1fr;
+    @include product-sidebar {
+        grid-template-columns: 1fr;
+    }
+    div:nth-child(2) {
+        align-self: center;
+    }
+    img {
+        width: 100%;
+        border-radius: 15px;
+        transition: transform .5s;
+        &:hover {
+            transform: translateY(-10px);
+        }
+    }
+    &-text {
+        display: grid;
+        align-items: center;
+        h3 {
+            font-size: 2rem;         
+            &:before {
+                @include font-icon;
+                content: '\f805';
+                color: lighten($dark-color, 5%);
+                padding-right: $mobile-padding;
+            }
+        }
+        h4 {
+            font-size: 1.4rem;
+            font-weight: normal;
+            padding-bottom: $mobile-padding;
+        }
+        p {
+            line-height: 1.8em;
+        }
+    }
+}
+
+
+.industrial-construction {
+    @extend .industrial-food;
+    grid-template-areas: "image text";
+    @include product-sidebar {
+        grid-template-areas: "text"
+                             "image";
+    }
+    img {
+        grid-area: image;
+    }
+    &-text {
+        @extend .industrial-food-text;
+        grid-area: text;
+        h3 {
+            &:before {
+                content: '\f7d9';
+            }
+        }
+    }
+}
+
+
+.industrial-chemistry {
+    @extend .industrial-food;
+    &-text {
+        @extend .industrial-food-text;
+        h3 {
+            &::before {
+                content: '\f5d2';
+            }
+        }
+    }
+}
+
+.industrial-pharmaceuticals {
+    @extend .industrial-food;
+    grid-template-areas: "image text";
+    @include product-sidebar {
+        grid-template-areas: "text"
+                             "image";
+    }
+    img {
+        grid-area: image;
+    }
+    &-text {
+        @extend .industrial-food-text;
+        grid-area: text;
+        h3 {
+            &:before {
+                content: '\f486';
+            }
+        }
+    }
+}
+
+.industrial-agricultural {
+    @extend .industrial-food;
+    &-text {
+        @extend .industrial-food-text;
+        h3 {
+            &::before {
+                content: '\f787';
+            }
+        }
+    }
+}
+
+.industrial-comprehensive {
+    @extend .industrial-food;
+    grid-template-areas: "image text";
+    @include product-sidebar {
+        grid-template-areas: "text"
+                             "image";
+    }
+    img {
+        grid-area: image;
+    }
+    &-text {
+        @extend .industrial-food-text;
+        grid-area: text;
+        h3 {
+            &:before {
+                content: '\f64f';
+            }
+        }
+    }
+}

@@ -1,0 +1,132 @@
+.company-introduction {
+    &-item {
+        @include place-padding;
+        line-height: 1.8em;
+    }
+}
+
+.our-team {
+    background-color: $blue-color;
+    .section-title-reverse {
+        color: $light-color;
+    }
+    .our-team-item {
+        @include place-grid;
+        justify-items: center;
+        grid-template-columns: repeat(4, 1fr);
+        @include table {
+            grid-template-columns: repeat(2, 1fr);
+            padding: $mobile-padding;
+        }  
+        @include place-padding;
+        .our-team-item-overlap {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            img, h4 {
+                grid-row: 1 / -1;
+            }
+            img {
+                grid-column: 1 / -1;
+                width: 100%;
+            }
+            h4 {
+                grid-column: 1 / -1;
+                align-self: end;
+                background-color: rgba($nav-background, .7);
+                padding: .5rem;
+                text-align: center;
+                color: $light-color;
+            }
+        }
+    }
+}
+
+
+
+.our-advantages-item {
+    @extend .company-item;
+    @include place-padding;
+    h4 {
+        font-weight: normal;
+    }
+    img {
+        max-width: 150px;
+    }
+}
+
+
+.product-quality {
+    @extend .our-team;
+}
+
+.product-quality-item {
+    @include place-grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    @include table {
+        grid-template-columns: 1fr;
+        padding: $mobile-padding;
+    }
+    padding: $desktop-padding;
+
+    .product-quality-overlap {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        img, h4 {
+            grid-column: 1 / -1;
+            grid-row: 1 / -1;
+        }
+        img{
+            grid-column: 1 / -1;
+            width: 100%;
+        }
+        h4 {
+            grid-column: 1 / -1;
+            align-self: end;
+            background-color: rgba($nav-background, .8);
+            padding: .5rem;
+            text-align: center;
+            color: $light-color;
+        }
+    }
+}
+
+.product-quality-text {
+    h4 {
+        color: $light-color;
+        line-height: 3em;
+        font-weight: normal;
+        &:before {
+            content:'\f00c';
+            @include font-icon;
+            padding-right: $mobile-padding;
+        }
+        &:hover:before {
+            content: '\f560';
+        }
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.production-safety-item{
+    @extend .product-quality-item;
+    grid-template-areas: "sidebar content";
+    @include table {
+        grid-template-areas: "content"
+                             "sidebar";
+    }
+    .production-safety-overlap {
+        @extend .product-quality-overlap;
+        grid-area: content;
+    }
+}
+
+.production-safety-text {
+    @extend .product-quality-text;
+    grid-area: sidebar;
+    h4 {
+        color: $dark-color;
+    }
+}

@@ -1,0 +1,226 @@
+//Responsive
+$mobile: 500px;
+@mixin mobile {
+    @media  (max-width: #{$mobile}){
+        @content;      
+    }
+}
+
+$table: 1000px;
+@mixin table {
+    @media  (max-width: #{$table}){
+        @content;      
+    }
+}
+
+$product-sidebar: 1250px;
+@mixin product-sidebar {
+    @media  (max-width: #{$product-sidebar}){
+        @content;      
+    }
+}
+
+//Slider
+.flex-caption {
+    width: 100%;
+    padding: 1rem;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.5);
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+    font-size: 1.1rem;
+    line-height: 18px;
+    text-align: center;
+}
+
+
+
+.flexslider {
+	background:none;
+	border:none !important;
+	box-shadow:none;
+    margin:0px !important;
+    &:hover {
+        .flex-direction-nav .flex-next{right: 30px !important;}
+        .flex-direction-nav .flex-prev{left: 30px !important;}
+    }
+}
+
+.flex-direction-nav  {
+    a {
+        color: $light-color !important;
+        top: 40% !important;
+        height: 50px !important;
+    }
+}
+
+
+//Product center
+.product-center {
+    @include place-padding;
+}
+
+.section-title {
+    text-align: center;
+   h2 {
+       font-size: 2.5rem;
+       padding: $mobile-padding;
+       border-bottom: 2px solid $dark-color;
+   }
+   h4 {
+       font-size: 1.2rem;
+       padding: $mobile-padding;
+   }
+}
+
+@supports (display: grid){
+.product-item {
+    grid-template-columns: repeat(4, 1fr);
+    @include place-grid;
+    @include place-padding;
+    & > div {
+        justify-self: center;        
+    }
+    a > h4 {
+        text-align: center;
+        color: $dark-color;
+        @include button-home;
+    }
+    img {
+        margin-bottom: $mobile-padding;
+        object-fit: cover;
+        transition: transform .5s;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+    @include table {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include mobile {
+        grid-template-columns: 1fr;
+    }
+}
+}
+
+
+//Company Intro
+.company-intro {
+    @extend .product-center;
+    background: black url(https://aijuejixie-1253622804.file.myqcloud.com/img/b374250aeb54e1dce3ad7eb178853755.jpg);
+    @include mobile {
+        background: $blue-color;
+    }
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: $light-color;
+    &-text p {
+        margin-bottom: $mobile-padding + 1rem;
+        @include place-padding;
+        line-height: 1.8em;
+    }
+}
+
+.section-title-reverse {
+    @extend .section-title;
+    h2 {
+        border-bottom: 2px solid $light-color;
+    }
+}
+
+
+@supports (display: grid){
+.company-item {
+    grid-template-columns: repeat(4, 1fr);
+    @include place-grid;
+    @include place-padding;
+    text-align: center;
+    @include table {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    img {
+        margin-bottom: $mobile-padding;
+        transition: transform .5s;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+}
+
+//Client Cases
+.client-cases {
+    @extend .product-center;
+}
+
+.client-item {
+    padding: $mobile-padding;
+    grid-template-columns: repeat(5, 1fr);
+    @extend .company-item;
+    @include place-padding;
+    @include table {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @include mobile {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    img {
+        transition: transform .5s;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+    h4 {
+        font-weight: normal;
+    }
+}
+
+
+//Industrial Cliens
+.industrial-clients {
+    @extend .product-center;
+    background-color: darken($light-color, 5%);
+}
+
+.industrial-item {
+    grid-template-columns: repeat(6, 1fr);
+    @extend .client-item;
+    @include product-sidebar {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @include mobile {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    & > div {
+        justify-self: center;        
+    }
+    a > h4 {
+        color: $dark-color;
+        @include button-home;
+        background-color: $blue-color;
+    }
+}
+
+
+//Contact Us
+.contact-us {
+    @extend .product-center;
+    color: $light-color;
+    background-color: $blue-color;
+}
+
+.contact-item {
+    @extend .client-item;
+    grid-template-columns: repeat(5, 1fr);
+    @include table {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include mobile {
+        grid-template-columns: 1fr;
+    }
+    div > h4 {
+        line-height: 1.8em;
+    }
+}
+

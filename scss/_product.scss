@@ -1,0 +1,113 @@
+//Product detail
+.product-detail {
+    @extend .product-categories;
+    grid-gap: 2rem;
+    &-sidebar {@extend .product-sidebar;}
+    &-content {
+       @include place-grid;
+       align-self: start;
+       line-height: 1.8em;
+       h3 {
+          text-align: center;
+          font-size: 1.5rem;
+          letter-spacing: .5rem;
+          padding: $mobile-padding - .5rem 0;
+          background-color: lighten($dark-color, 60%);
+          &:hover {
+              background-color: lighten($dark-color, 50%);
+          }
+        }
+        h4 {
+            padding-top: $mobile-padding;
+            &::before {
+                @include font-icon;
+                content: '\f14a';
+                padding-right: $mobile-padding;
+                color: lighten($dark-color, 10%);
+            }
+        }
+        p {
+            padding: $mobile-padding 0;           
+        }
+}
+}
+
+//table
+.product-detail-content-table {
+    table {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            width: 100%;
+        tr {
+            border: 1px solid darken($light-color, 20%);
+            padding: .35em;
+            &:hover {
+                background-color: darken($light-color, 2%);
+            }
+          }
+        th,
+        td {
+            padding: .625em;
+            text-align: center;
+        }
+        th {
+            letter-spacing: .1em;
+            background-color: lighten($blue-color, 60%);
+            border: 1px solid darken($light-color, 20%);
+            &:hover {
+                background-color: lighten($blue-color, 65%);
+            }
+        }
+    }
+
+    @include mobile {
+        table {border: none;}
+        thead {
+            border: none;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        } 
+        tr {
+            border-bottom: 3px solid darken($light-color, 20%);
+            display: block;
+            margin-bottom: 2rem;
+            &:nth-child(even) {
+                background-color: darken($light-color, 4%);
+            }
+        }
+        td {
+            border-bottom: 1px solid darken($light-color, 20%);
+            display: flex;
+            justify-content: space-between;
+            &:before {content: attr(data-label);}
+            &:last-child {border-bottom: 0;}
+        }
+    }
+}
+
+
+
+//Gallery
+.product-detail-content-gallery p{
+    @include place-grid;
+    grid-template-columns: 1fr 1fr;
+    @include mobile {
+        grid-template-columns: 1fr;
+    }
+    transition: transform .5s;
+    img {
+        width: 100%;
+        border: 1px solid darken($light-color, 20%);
+        border-radius: 15px;
+        transition: transform .5s;
+        &:hover {
+            transform: translateY(-10px);
+        }
+    }
+
+}

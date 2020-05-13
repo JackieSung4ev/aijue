@@ -1,0 +1,24 @@
+@import 'config';
+@import 'nav';
+@import 'homepage';
+@import 'footer';
+@import 'product-center';
+@import 'company-introduction';
+@import 'industrial-clients';
+@import 'customer-service';
+@import 'contact';
+@import 'product';
+
+
+*,*::before,*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration:none;
+}
+
+body {
+    font-family: Microsoft Yahei,Avenir,Segoe UI,Hiragino Sans GB,STHeiti,Microsoft Sans Serif,WenQuanYi Micro Hei,sans-serif;
+    overflow-x: hidden;
+}
+
