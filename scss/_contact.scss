@@ -1,8 +1,25 @@
+//Responsive
+$mobile: 500px;
+@mixin mobile {
+    @media  (max-width: #{$mobile}){
+        @content;      
+    }
+}
+
+$table: 1000px;
+@mixin table {
+    @media  (max-width: #{$table}){
+        @content;      
+    }
+}
+
 .contact-us-now {
     @extend .contact-us;
     background-color: transparent;
     color: $dark-color;
     &-item {
         @extend .contact-item;
+        grid-template-columns: 1fr 1fr;
     }
 }
+
